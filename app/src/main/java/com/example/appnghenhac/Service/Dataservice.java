@@ -1,5 +1,6 @@
 package com.example.appnghenhac.Service;
 
+import com.example.appnghenhac.Model.Album;
 import com.example.appnghenhac.Model.ChuDe;
 import com.example.appnghenhac.Model.ChuDeVaTheLoai;
 import com.example.appnghenhac.Model.Playlist;
@@ -20,5 +21,8 @@ public interface Dataservice {
 
     @GET("chudevatheloai.php")
     Call<List<ChuDeVaTheLoai>> GetDataChuDeTheLoaiToDay();
+
+    @GET("albumhot.php")
+    Call<List<Album>> GetDataAlbumHot();
 
 }
