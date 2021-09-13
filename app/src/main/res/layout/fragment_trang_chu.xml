@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
     android:fillViewport="true"
@@ -15,15 +17,23 @@
             android:name="com.example.appnghenhac.Fragment.Fragment_Quang_Cao"
             android:id="@+id/fragmentquangcao"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_quang_cao"/>
 
-        </fragment>
         <fragment
             android:name="com.example.appnghenhac.Fragment.Fragment_Playlist"
             android:id="@+id/fragmentplaylist"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </fragment>
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_playlist"/>
+
+        <fragment
+            android:name="com.example.appnghenhac.Fragment.Fragment_ChuDe_TheLoai_ToDay"
+            android:id="@+id/fragment_chude_theloai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_chude_theloai"/>
+
     </LinearLayout>
 
 </ScrollView>
