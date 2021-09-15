@@ -1,16 +1,19 @@
 package com.example.appnghenhac.Service;
 
 import com.example.appnghenhac.Model.Album;
-import com.example.appnghenhac.Model.ChuDe;
+import com.example.appnghenhac.Model.BaiHat;
 import com.example.appnghenhac.Model.ChuDeVaTheLoai;
 import com.example.appnghenhac.Model.Playlist;
 import com.example.appnghenhac.Model.QuangCao;
-import com.example.appnghenhac.Model.TheLoai;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.HTTP;
+import retrofit2.http.POST;
 
 public interface Dataservice {
     @GET("songbanner.php")
@@ -24,5 +27,18 @@ public interface Dataservice {
 
     @GET("albumhot.php")
     Call<List<Album>> GetDataAlbumHot();
+
+    @GET("baihatduocyeuthich.php")
+    Call<List<BaiHat>> GetDataBaiHatDuocYeuThich();
+
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<BaiHat>> GetDataDanhSachBaiHatQuangCao(@Field("idquangcao") String idquangcao);
+
+    @FormUrlEncoded
+    @POST("danhsachbaihat.php")
+    Call<List<BaiHat>> GetDataDanhSachBaiHatPlayList(@Field("idplaylist") String idplaylist);
+
 
 }

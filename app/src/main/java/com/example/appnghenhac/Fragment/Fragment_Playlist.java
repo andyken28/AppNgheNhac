@@ -1,18 +1,23 @@
 package com.example.appnghenhac.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.appnghenhac.Activity.DanhSachBaiHatActivity;
+import com.example.appnghenhac.Activity.MainActivity;
 import com.example.appnghenhac.Adapter.PlaylistAdapter;
 import com.example.appnghenhac.Model.Playlist;
 import com.example.appnghenhac.R;
@@ -53,6 +58,15 @@ public class Fragment_Playlist extends Fragment {
                 playlistAdapter = new PlaylistAdapter(getActivity(),android.R.layout.simple_expandable_list_item_1,mangplaylist);
                 listView.setAdapter(playlistAdapter);
                 setListViewHeightBasedOnChildren(listView);
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                        Toast.makeText(getActivity(), mangplaylist.get(position).getTen(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(), DanhSachBaiHatActivity.class);
+                        intent.putExtra("itemplaylist",mangplaylist.get(position));
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override

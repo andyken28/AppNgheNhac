@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:id="@+id/coordinatorlayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout
+        android:fitsSystemWindows="true"
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_height="300dp">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:layout_width="match_parent"
+            app:expandedTitleMarginBottom="33dp"
+            app:expandedTitleGravity="center|bottom"
+            android:fitsSystemWindows="true"
+
+            style="@style/Widget.Support.CoordinatorLayout"
+            android:background="@mipmap/ic_launcher"
+            android:id="@+id/collapsingtoolbar"
+            android:layout_height="match_parent">
+            <androidx.appcompat.widget.Toolbar
+                android:elevation="6dp"
+                app:title="Nhạc Tên"
+                app:popupTheme="@style/ThemeOverlay.AppCompat"
+                app:layout_collapseMode="pin"
+                android:fitsSystemWindows="true"
+                android:id="@+id/toolbardanhsach"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_backgroundquancao"
+                />
+            <ImageView
+                android:background="@drawable/custom_backgroundimagedanhsachnhac"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="fitXY"
+                android:elevation="6dp"
+                android:layout_marginTop="50dp"
+                android:src="@mipmap/ic_launcher"
+
+                android:layout_gravity="center"
+                android:layout_marginBottom="50dp"
+                android:id="@+id/imageviewdanhsachcakhuc"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:src="@drawable/iconfloatingactionbutton"
+        android:scaleType="fitXY"
+        app:fabSize="normal"
+        android:backgroundTint="#a845de"
+        android:id="@+id/floatingactionbutton"
+        app:layout_anchorGravity="bottom|center"
+        app:layout_anchor="@id/appbarlayout"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+    <androidx.core.widget.NestedScrollView
+        android:layout_marginTop="30dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviewdanhsachbaihat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

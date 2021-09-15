@@ -25,15 +25,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+<!--        <fragment-->
+<!--            android:name="com.example.appnghenhac.Fragment.Fragment_ChuDe_TheLoai_ToDay"-->
+<!--            android:id="@+id/fragment_chude_theloai"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
+
         <fragment
-            android:name="com.example.appnghenhac.Fragment.Fragment_ChuDe_TheLoai_ToDay"
-            android:id="@+id/fragment_chude_theloai"
+            android:name="com.example.appnghenhac.Fragment.Fragment_AlbumHot"
+            android:id="@+id/fragment_albumhot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <fragment
-            android:name="com.example.appnghenhac.Fragment.Fragment_AlbumHot"
-            android:id="@+id/fragment_album"
+            android:name="com.example.appnghenhac.Fragment.Fragment_BaiHatYeuThich"
+            android:id="@+id/fragment_baihatyeuthich"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

@@ -37,10 +37,10 @@ public class Fragment_AlbumHot extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_albumhot,container,false);
-        recyclerViewablum = view.findViewById(R.id.rectanglesalbum);
+        recyclerViewablum = view.findViewById(R.id.recycleralbum);
         txtxemthemalbum = view.findViewById(R.id.textviewxemthe);
         GetData();
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return view;
     }
 
     private void GetData() {
@@ -50,10 +50,12 @@ public class Fragment_AlbumHot extends Fragment {
             @Override
             public void onResponse(Call<List<Album>> call, Response<List<Album>> response) {
                 ArrayList<Album> albumArrayList = (ArrayList<Album>) response.body();
+
                 albumAdapter = new AlbumAdapter(getActivity(),albumArrayList);
 
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
                 linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+
                 recyclerViewablum.setLayoutManager(linearLayoutManager);
                 recyclerViewablum.setAdapter(albumAdapter);
             }
