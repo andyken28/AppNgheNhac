@@ -4,10 +4,9 @@
     android:layout_width="match_parent"
     android:layout_margin="5dp"
     android:elevation="5dp"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 <RelativeLayout
     android:padding="10dp"
-    
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
@@ -24,7 +23,8 @@
         android:ellipsize="end"
         android:maxWidth="250dp"
         android:singleLine="true"
-        android:text="Tên ca khuc"
+        android:maxLines="1"
+        android:text="Tên bài hát"
         android:textColor="#030303"
         android:textSize="20sp"
         android:layout_width="wrap_content"
@@ -36,8 +36,9 @@
         android:layout_below="@id/textviewtenbaihatdanhsach"
         android:id="@+id/textviewcasidanhsach"
         android:textSize="20sp"
+        android:maxLines="1"
         android:textColor="#979797"
-        android:text="tên ca sĩ"
+        android:text="ca sĩ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />

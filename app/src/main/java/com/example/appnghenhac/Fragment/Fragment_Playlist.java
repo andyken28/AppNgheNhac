@@ -45,6 +45,7 @@ public class Fragment_Playlist extends Fragment {
         txttitleplaylist = view.findViewById(R.id.textviewtenplaylist);
         txtxemthemplaylist = view.findViewById(R.id.textviewmoreplaylist);
         GetData();
+
         return view;
     }
 
@@ -58,15 +59,7 @@ public class Fragment_Playlist extends Fragment {
                 playlistAdapter = new PlaylistAdapter(getActivity(),android.R.layout.simple_expandable_list_item_1,mangplaylist);
                 listView.setAdapter(playlistAdapter);
                 setListViewHeightBasedOnChildren(listView);
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                        Toast.makeText(getActivity(), mangplaylist.get(position).getTen(), Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getActivity(), DanhSachBaiHatActivity.class);
-                        intent.putExtra("itemplaylist",mangplaylist.get(position));
-                        startActivity(intent);
-                    }
-                });
+
             }
 
             @Override

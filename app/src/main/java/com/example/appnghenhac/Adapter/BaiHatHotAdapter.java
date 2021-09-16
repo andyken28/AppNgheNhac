@@ -39,6 +39,12 @@ public class BaiHatHotAdapter extends RecyclerView.Adapter<BaiHatHotAdapter.View
         holder.txttenbaihat.setText(baiHatArrayList.get(position).getTenbaihat());
         holder.txttencasi.setText(baiHatArrayList.get(position).getCasi());
         Picasso.with(context).load(baiHatArrayList.get(position).getHinhbaihat()).into(holder.imghinhbaihat);
+        holder.imgluotthich.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Picasso.with(context).load(R.drawable.iconloved).into(holder.imgluotthich);
+            }
+        });
     }
 
     @Override

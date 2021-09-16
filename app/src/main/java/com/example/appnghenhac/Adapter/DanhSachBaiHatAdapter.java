@@ -37,8 +37,10 @@ public class DanhSachBaiHatAdapter extends RecyclerView.Adapter<DanhSachBaiHatAd
 //        BaiHat baiHat = new BaiHat();
 //        baiHat = baiHatArrayList.get(position);
         holder.txtindex.setText(position+1+"");
-        holder.txttenbaihat.setText(baiHatArrayList.get(position).getTenbaihat());
-        holder.txtcasi.setText(baiHatArrayList.get(position).getCasi());
+        if(baiHatArrayList.get(position).getTenbaihat()!=null)
+            holder.txttenbaihat.setText(baiHatArrayList.get(position).getTenbaihat());
+        if(baiHatArrayList.get(position).getCasi()!=null)
+            holder.txtcasi.setText(baiHatArrayList.get(position).getCasi());
 
     }
 

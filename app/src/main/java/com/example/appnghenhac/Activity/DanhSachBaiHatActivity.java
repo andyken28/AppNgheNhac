@@ -68,7 +68,7 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
         }
         if(playlist != null && !playlist.getIdplaylist().equals("")){
             setValueInView(playlist.getTen(),playlist.getHinhanh(),playlist.getIcon());
-            //getDataQuangCao(quangCao.getIdQuangCao());
+            getDataPlayList(playlist.getIdplaylist());
         }
     }
 
@@ -78,8 +78,31 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
         callback.enqueue(new Callback<List<BaiHat>>() {
             @Override
             public void onResponse(Call<List<BaiHat>> call, Response<List<BaiHat>> response) {
+                baiHatArrayList = new ArrayList<>();
                 baiHatArrayList = (ArrayList<BaiHat>) response.body();
 
+                if (baiHatArrayList.size()>0){
+                    danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(DanhSachBaiHatActivity.this,baiHatArrayList);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(DanhSachBaiHatActivity.this));
+                    recyclerView.setAdapter(danhSachBaiHatAdapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<BaiHat>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void getDataPlayList(String idplaylist) {
+        Dataservice dataservice = APIService.getService();
+        Call<List<BaiHat>> callback = dataservice.GetDataDanhSachBaiHatPlayList(idplaylist);
+        callback.enqueue(new Callback<List<BaiHat>>() {
+            @Override
+            public void onResponse(Call<List<BaiHat>> call, Response<List<BaiHat>> response) {
+                baiHatArrayList = new ArrayList<>();
+                baiHatArrayList = (ArrayList<BaiHat>) response.body();
                 if (baiHatArrayList.size()>0){
                     danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(DanhSachBaiHatActivity.this,baiHatArrayList);
                     recyclerView.setLayoutManager(new LinearLayoutManager(DanhSachBaiHatActivity.this));

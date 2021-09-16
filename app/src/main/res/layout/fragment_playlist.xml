@@ -16,7 +16,6 @@
 
     </TextView>
     <ListView
-
         android:layout_below="@id/titleviewtitleplaylist"
         android:id="@+id/listviewplaylist"
         android:layout_width="match_parent"

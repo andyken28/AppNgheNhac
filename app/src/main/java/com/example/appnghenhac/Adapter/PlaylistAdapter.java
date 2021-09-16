@@ -1,16 +1,20 @@
 package com.example.appnghenhac.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.text.AutoText;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.appnghenhac.Activity.DanhSachBaiHatActivity;
 import com.example.appnghenhac.Model.Playlist;
 import com.example.appnghenhac.R;
 import com.squareup.picasso.Picasso;
@@ -18,7 +22,6 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class PlaylistAdapter extends ArrayAdapter<Playlist> {
-
 
     public PlaylistAdapter(@NonNull Context context, int resource, @NonNull List<Playlist> objects) {
         super(context, resource, objects);
@@ -51,6 +54,14 @@ public class PlaylistAdapter extends ArrayAdapter<Playlist> {
         viewHolder.txttenplaylist.setText(playlist.getTen());
 
         convertView.setTag(viewHolder);
+        viewHolder.imgbackground.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DanhSachBaiHatActivity.class);
+                intent.putExtra("itemplaylist", getItem(position));
+                getContext().startActivity(intent);
+            }
+        });
         return convertView;
     }
 }
