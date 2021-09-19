@@ -1,6 +1,7 @@
 package com.example.appnghenhac.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appnghenhac.Activity.PlayNhacActivity;
 import com.example.appnghenhac.Model.BaiHat;
 import com.example.appnghenhac.R;
 
@@ -42,6 +44,7 @@ public class DanhSachBaiHatAdapter extends RecyclerView.Adapter<DanhSachBaiHatAd
         if(baiHatArrayList.get(position).getCasi()!=null)
             holder.txtcasi.setText(baiHatArrayList.get(position).getCasi());
 
+
     }
 
     @Override
@@ -59,6 +62,14 @@ public class DanhSachBaiHatAdapter extends RecyclerView.Adapter<DanhSachBaiHatAd
             txtcasi = itemView.findViewById(R.id.textviewcasidanhsach);
             txtindex = itemView.findViewById(R.id.textviewdanhsachindex);
             imgluotthich = itemView.findViewById(R.id.imageviewluotthich);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, PlayNhacActivity.class);
+                    intent.putExtra("cakhuc",baiHatArrayList.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

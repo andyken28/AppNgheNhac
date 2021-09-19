@@ -1,6 +1,7 @@
 package com.example.appnghenhac.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appnghenhac.Activity.PlayNhacActivity;
 import com.example.appnghenhac.Model.BaiHat;
 import com.example.appnghenhac.R;
 import com.squareup.picasso.Picasso;
@@ -39,12 +41,7 @@ public class BaiHatHotAdapter extends RecyclerView.Adapter<BaiHatHotAdapter.View
         holder.txttenbaihat.setText(baiHatArrayList.get(position).getTenbaihat());
         holder.txttencasi.setText(baiHatArrayList.get(position).getCasi());
         Picasso.with(context).load(baiHatArrayList.get(position).getHinhbaihat()).into(holder.imghinhbaihat);
-        holder.imgluotthich.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Picasso.with(context).load(R.drawable.iconloved).into(holder.imgluotthich);
-            }
-        });
+
     }
 
     @Override
@@ -62,6 +59,21 @@ public class BaiHatHotAdapter extends RecyclerView.Adapter<BaiHatHotAdapter.View
             txttencasi = itemView.findViewById(R.id.textviewtencasibaihathot);
             imghinhbaihat = itemView.findViewById(R.id.imageviewhinhanhbaihat);
             imgluotthich = itemView.findViewById(R.id.imageviewluotthich);
+            imgluotthich.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Picasso.with(context).load(R.drawable.iconloved).into(imgluotthich);
+
+                }
+            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, PlayNhacActivity.class);
+                    intent.putExtra("cakhuc",baiHatArrayList.get(getPosition()));
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.appnghenhac.Activity.DanhSachBaiHatActivity;
+import com.example.appnghenhac.Activity.DanhSachPlayListActivity;
 import com.example.appnghenhac.Activity.MainActivity;
 import com.example.appnghenhac.Adapter.PlaylistAdapter;
 import com.example.appnghenhac.Model.Playlist;
@@ -45,7 +46,13 @@ public class Fragment_Playlist extends Fragment {
         txttitleplaylist = view.findViewById(R.id.textviewtenplaylist);
         txtxemthemplaylist = view.findViewById(R.id.textviewmoreplaylist);
         GetData();
-
+        txtxemthemplaylist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DanhSachPlayListActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
